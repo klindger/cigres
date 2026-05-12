@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transparência - CIGRES</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-900: #0a5a34;
+      --verde-800: #0d6a3a;
+      --verde-700: #178742;
+      --verde-500: #289345;
+      --texto: #1e2b24;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--texto);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+    }
+
+    .transparencia-hero {
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      padding: 96px 20px 170px;
+      text-align: center;
+    }
+
+    .transparencia-content {
+      max-width: 780px;
+    }
+
+    .transparencia-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin-bottom: 26px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--verde-700);
+      font-size: 2rem;
+      box-shadow: 0 18px 36px rgba(22, 133, 59, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--verde-900);
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 22px auto 0;
+      color: #40504a;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <site-header active="transparencia"></site-header>
+
+    <main class="transparencia-hero">
+      <div class="transparencia-content">
+        <div class="transparencia-icon" aria-hidden="true">
+          <i class="bi bi-bar-chart-line"></i>
+        </div>
+
+        <h1>Transparência</h1>
+        <p>
+          Esta é uma visualização inicial da página de Transparência. Aqui você poderá organizar documentos, prestação de contas, relatórios e informações públicas do CIGRES.
+        </p>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script src="/src/site-components.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
