@@ -1,0 +1,362 @@
+:root {
+  --verde-900: #0a5a34;
+  --verde-800: #0d6a3a;
+  --verde-700: #178742;
+  --verde-500: #289345;
+  --verde-200: #dbead8;
+  --areia-100: #f8f5ea;
+  --areia-200: #efe7cf;
+  --texto: #1e2b24;
+  --texto-suave: #4d5c54;
+  --borda: rgba(8, 62, 34, 0.12);
+  --sombra: 0 24px 60px rgba(17, 69, 41, 0.14);
+  --regiao-sertao: #82b85c;
+  --regiao-agreste: #3f9e65;
+  --regiao-leste: #1f7a57;
+  --regiao-inativo: #d3ddd6;
+  --hover-outline: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--texto);
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--verde-800);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page-shell {
+  min-height: 100vh;
+}
+
+.container-wide {
+  width: min(100% - 32px, 1380px);
+  margin: 0 auto;
+}
+
+.municipios-page {
+  padding-bottom: 164px;
+}
+
+.sidebar-card,
+.map-shell-card {
+  border: 1px solid var(--borda);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--sombra);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  color: var(--verde-700);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.map-intro h2 {
+  margin: 0;
+  color: var(--verde-900);
+  letter-spacing: -0.04em;
+}
+
+.map-intro p,
+.sidebar-card p {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.75;
+}
+
+.map-section {
+  padding-top: 32px;
+}
+
+.map-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.map-intro {
+  flex: 1 1 560px;
+}
+
+.map-intro h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.map-intro p {
+  max-width: 58ch;
+  margin-top: 10px;
+}
+
+.map-subtitle {
+  white-space: nowrap;
+}
+
+.selected-card-top {
+  flex: 0 0 min(100%, 380px);
+  padding: 18px 20px;
+  border-radius: 22px;
+}
+
+.map-shell-card {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  background: #ffffff;
+}
+
+.map-bleed {
+  width: calc(100vw - 24px);
+  margin-left: calc(50% - ((100vw - 24px) / 2));
+}
+
+.map-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--borda);
+  background: linear-gradient(180deg, #f8fbf6 0%, #f3f8f1 100%);
+}
+
+.map-toolbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+#alagoas-map {
+  min-height: 680px;
+  background:
+    radial-gradient(circle at top left, rgba(219, 234, 216, 0.44), transparent 34%),
+    linear-gradient(180deg, #f9faf7 0%, #edf4ed 100%);
+}
+
+.sidebar {
+  display: grid;
+  gap: 0;
+}
+
+.sidebar-card {
+  padding: 22px;
+}
+
+.selected-card h3 {
+  margin: 0;
+  color: var(--verde-900);
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.map-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.btn-prefeitura,
+.btn-map-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-prefeitura {
+  width: fit-content;
+  min-width: 190px;
+  background: linear-gradient(180deg, #209149 0%, #0d6d3a 100%);
+  color: #fff;
+  box-shadow: 0 16px 28px rgba(10, 90, 52, 0.16);
+}
+
+.btn-map-action {
+  padding: 0.8rem 1rem;
+  background: rgba(15, 106, 58, 0.06);
+  color: var(--verde-900);
+}
+
+.btn-prefeitura:hover,
+.btn-map-action:hover {
+  transform: translateY(-1px);
+}
+
+.btn-prefeitura:hover {
+  color: #fff;
+  background: linear-gradient(180deg, #1d8644 0%, #0a5b33 100%);
+}
+
+.btn-prefeitura.disabled {
+  pointer-events: none;
+  background: linear-gradient(180deg, #d7ddd6 0%, #c3cbc4 100%);
+  color: #5d6a61;
+  box-shadow: none;
+}
+
+.sources-line {
+  margin: 18px 10px 0;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.legend-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.legend-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.legend-list li + li {
+  margin-top: 12px;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.legend-swatch.sertao {
+  background: var(--regiao-sertao);
+}
+
+.legend-swatch.agreste {
+  background: var(--regiao-agreste);
+}
+
+.legend-swatch.leste {
+  background: var(--regiao-leste);
+}
+
+.legend-swatch.neutro {
+  background: var(--regiao-inativo);
+}
+
+.leaflet-control-zoom {
+  border: 0;
+  box-shadow: 0 12px 28px rgba(14, 51, 30, 0.16);
+}
+
+.leaflet-control-zoom a {
+  color: var(--verde-900);
+}
+
+.leaflet-container a.leaflet-popup-close-button,
+.leaflet-container a.leaflet-control-zoom-in,
+.leaflet-container a.leaflet-control-zoom-out {
+  color: var(--verde-900);
+}
+
+.leaflet-tooltip.municipio-tooltip {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(10, 90, 52, 0.92);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(10, 55, 32, 0.22);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.leaflet-tooltip.municipio-tooltip::before {
+  border-top-color: rgba(10, 90, 52, 0.92);
+}
+
+.leaflet-tooltip.municipio-label {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: center;
+  max-width: 108px;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 8px rgba(0, 0, 0, 0.24);
+  white-space: normal;
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+.leaflet-tooltip.municipio-label::before {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .map-topbar {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .municipios-page {
+    padding-bottom: 132px;
+  }
+
+  .map-section {
+    padding-top: 24px;
+  }
+
+  .btn-map-action {
+    width: 100%;
+  }
+
+  .btn-prefeitura {
+    min-width: 0;
+  }
+
+  #alagoas-map {
+    min-height: 520px;
+  }
+}

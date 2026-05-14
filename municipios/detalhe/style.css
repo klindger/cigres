@@ -1,0 +1,234 @@
+:root {
+  --verde-900: #0a5a34;
+  --verde-800: #0d6a3a;
+  --verde-700: #178742;
+  --verde-500: #289345;
+  --texto: #1e2b24;
+  --texto-suave: #4d5c54;
+  --borda: rgba(8, 62, 34, 0.12);
+  --sombra: 0 24px 60px rgba(17, 69, 41, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--texto);
+  background: #ffffff;
+}
+
+a {
+  color: var(--verde-800);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container-wide {
+  width: min(100% - 32px, 1380px);
+  margin: 0 auto;
+}
+
+.municipio-detalhe-page {
+  padding: 34px 0 160px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--verde-800);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.visual-card,
+.info-card {
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--sombra);
+}
+
+.eyebrow,
+.visual-label {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--verde-700);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1,
+.info-card h2 {
+  margin: 0;
+  color: var(--verde-900);
+  letter-spacing: -0.04em;
+}
+
+.detail-header h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.96;
+}
+
+.detail-header p,
+.info-card p,
+.contact-list dd {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.78;
+}
+
+.detail-header p {
+  max-width: 64ch;
+  margin-top: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.detail-header {
+  margin-bottom: 18px;
+}
+
+.btn-main,
+.btn-secondary-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0.85rem 1.15rem;
+  border-radius: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.btn-main {
+  background: linear-gradient(180deg, #209149 0%, #0d6d3a 100%);
+  color: #fff;
+}
+
+.btn-secondary-main {
+  background: rgba(15, 106, 58, 0.06);
+  color: var(--verde-900);
+  border: 1px solid rgba(23, 135, 66, 0.2);
+}
+
+.btn-main.disabled,
+.btn-secondary-main.disabled {
+  pointer-events: none;
+  background: #d7ddd6;
+  color: #5d6a61;
+  border-color: transparent;
+}
+
+.visuals-row {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 360px);
+  gap: 16px;
+  align-items: start;
+}
+
+.info-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.visual-card {
+  padding: 16px;
+}
+
+.prefeito-image,
+.brasao-image {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  background: #f4f7f3;
+}
+
+.prefeito-image {
+  aspect-ratio: 4 / 4.6;
+}
+
+.brasao-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  padding: 14px;
+}
+
+.visual-card strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--verde-900);
+  font-size: 1rem;
+}
+
+.info-card {
+  padding: 22px;
+}
+
+.info-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.contact-list dt {
+  margin-bottom: 4px;
+  color: var(--verde-900);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-list dd {
+  margin-left: 0;
+}
+
+@media (max-width: 980px) {
+  .visuals-row {
+    grid-template-columns: 1fr;
+  }
+
+  .info-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .municipio-detalhe-page {
+    padding-top: 22px;
+    padding-bottom: 132px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-main,
+  .btn-secondary-main {
+    width: 100%;
+  }
+}

@@ -1,0 +1,263 @@
+let MUNICIPIOS_ALAGOAS = {};
+
+const MUNICIPIO_COLORS = {
+  '2700706': '#5b8f29',
+  '2700904': '#0f766e',
+  '2701209': '#b45309',
+  '2701803': '#7c3aed',
+  '2702504': '#c2410c',
+  '2703403': '#1d4ed8',
+  '2703700': '#be123c',
+  '2704401': '#0f4c81',
+  '2704609': '#4d7c0f',
+  '2705408': '#7e22ce',
+  '2705705': '#0369a1',
+  '2706000': '#b91c1c',
+  '2706208': '#15803d',
+  '2706406': '#9a3412',
+  '2708006': '#4338ca',
+  '2708402': '#a21caf',
+  '2708956': '#854d0e',
+};
+
+const INACTIVE_STYLE = {
+  color: 'rgba(255, 255, 255, 0.72)',
+  weight: 0.9,
+  fillColor: '#d3ddd6',
+  fillOpacity: 0.52,
+};
+
+const HOVER_DELAY_MS = 260;
+
+const municipioNome = document.getElementById('municipioNome');
+const municipioLink = document.getElementById('municipioLink');
+const resetViewButton = document.getElementById('resetViewButton');
+
+let map;
+let geojsonLayer;
+let initialBounds = null;
+let currentFocusCode = null;
+let pendingHoverTimeout = null;
+
+function getActiveBounds() {
+  const activeLayers = [];
+
+  geojsonLayer.eachLayer((layer) => {
+    if (isMunicipioAtivo(layer.feature.properties.codarea)) {
+      activeLayers.push(layer);
+    }
+  });
+
+  return L.featureGroup(activeLayers).getBounds();
+}
+
+function isMunicipioAtivo(code) {
+  return Boolean(MUNICIPIOS_ALAGOAS[code]);
+}
+
+function getPresentationUrl(code) {
+  return `/municipios/detalhe/?id=${code}`;
+}
+
+function getActiveStyle(code) {
+  const color = MUNICIPIO_COLORS[code] || '#289345';
+
+  return {
+    color: 'rgba(255, 255, 255, 0.86)',
+    weight: 1.1,
+    fillColor: color,
+    fillOpacity: 0.82,
+  };
+}
+
+function styleFeature(feature) {
+  const code = feature.properties.codarea;
+  return isMunicipioAtivo(code) ? getActiveStyle(code) : INACTIVE_STYLE;
+}
+
+function highlightLayer(layer) {
+  layer.setStyle({
+    color: '#ffffff',
+    weight: 2.1,
+    fillOpacity: 0.96,
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    layer.bringToFront();
+  }
+}
+
+function resetLayerStyle(layer) {
+  const code = layer.feature.properties.codarea;
+
+  if (!isMunicipioAtivo(code)) {
+    layer.setStyle(INACTIVE_STYLE);
+    return;
+  }
+
+  geojsonLayer.resetStyle(layer);
+}
+
+function disableLink() {
+  municipioLink.classList.add('disabled');
+  municipioLink.setAttribute('aria-disabled', 'true');
+  municipioLink.href = '#';
+}
+
+function clearPendingHover() {
+  if (pendingHoverTimeout) {
+    window.clearTimeout(pendingHoverTimeout);
+    pendingHoverTimeout = null;
+  }
+}
+
+function updatePanel(code) {
+  const metadata = MUNICIPIOS_ALAGOAS[code];
+
+  if (!metadata) {
+    currentFocusCode = null;
+    municipioNome.textContent = 'Passe o mouse sobre um município contemplado';
+    disableLink();
+    return;
+  }
+
+  currentFocusCode = code;
+  municipioNome.textContent = metadata.nome;
+
+  municipioLink.classList.remove('disabled');
+  municipioLink.setAttribute('aria-disabled', 'false');
+  municipioLink.href = metadata.prefeitura || '#';
+}
+
+function openPresentation(code) {
+  if (!isMunicipioAtivo(code)) {
+    return;
+  }
+
+  window.open(getPresentationUrl(code), '_blank', 'noopener,noreferrer');
+}
+
+function bindMunicipioEvents(feature, layer) {
+  const code = feature.properties.codarea;
+
+  if (!isMunicipioAtivo(code)) {
+    return;
+  }
+
+  const metadata = MUNICIPIOS_ALAGOAS[code];
+  layer.bindTooltip(metadata.nome, {
+    permanent: true,
+    direction: 'center',
+    className: 'municipio-label',
+  });
+
+  layer.on({
+    mouseover: () => {
+      geojsonLayer.eachLayer((item) => resetLayerStyle(item));
+      highlightLayer(layer);
+      clearPendingHover();
+      pendingHoverTimeout = window.setTimeout(() => {
+        updatePanel(code);
+        pendingHoverTimeout = null;
+      }, HOVER_DELAY_MS);
+    },
+    mouseout: () => {
+      clearPendingHover();
+      resetLayerStyle(layer);
+    },
+    click: () => {
+      clearPendingHover();
+      openPresentation(code);
+    },
+  });
+}
+
+function createMap() {
+  map = L.map('alagoas-map', {
+    zoomControl: true,
+    attributionControl: false,
+    scrollWheelZoom: false,
+    minZoom: 7,
+    maxZoom: 11,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    opacity: 0.32,
+    attribution: '&copy; OpenStreetMap contributors',
+  }).addTo(map);
+}
+
+async function loadGeoJson() {
+  const response = await fetch('/municipios/alagoas-municipios.geojson');
+
+  if (!response.ok) {
+    throw new Error('Não foi possível carregar o GeoJSON dos municípios.');
+  }
+
+  return response.json();
+}
+
+async function loadMunicipiosData() {
+  const response = await fetch('/municipios/municipios-dados.json');
+
+  if (!response.ok) {
+    throw new Error('Não foi possível carregar a base dos municípios.');
+  }
+
+  const items = await response.json();
+  MUNICIPIOS_ALAGOAS = Object.fromEntries(
+    items.map((item) => [
+      item.codigo,
+      {
+        nome: item.nome,
+        prefeitura: item.website || item.prefeitura || '#',
+      },
+    ])
+  );
+}
+
+async function initMunicipiosMap() {
+  try {
+    await loadMunicipiosData();
+    createMap();
+    const geojson = await loadGeoJson();
+
+    geojsonLayer = L.geoJSON(geojson, {
+      style: styleFeature,
+      onEachFeature: bindMunicipioEvents,
+    }).addTo(map);
+
+    initialBounds = getActiveBounds();
+    map.fitBounds(initialBounds, { padding: [16, 16] });
+    map.setMaxBounds(initialBounds.pad(0.08));
+    map.whenReady(() => map.invalidateSize());
+    updatePanel(null);
+  } catch (error) {
+    municipioNome.textContent = 'Erro ao carregar o mapa';
+    disableLink();
+    console.error(error);
+  }
+}
+
+function resetFocusedMunicipio() {
+  clearPendingHover();
+  currentFocusCode = null;
+  updatePanel(null);
+
+  if (geojsonLayer) {
+    geojsonLayer.eachLayer((layer) => resetLayerStyle(layer));
+  }
+}
+
+resetViewButton.addEventListener('click', () => {
+  if (map && initialBounds) {
+    map.fitBounds(initialBounds, { padding: [16, 16] });
+  }
+});
+
+window.addEventListener('pageshow', () => {
+  resetFocusedMunicipio();
+});
+
+document.addEventListener('DOMContentLoaded', initMunicipiosMap);
