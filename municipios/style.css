@@ -51,7 +51,6 @@ img {
   padding-bottom: 164px;
 }
 
-.sidebar-card,
 .map-shell-card {
   border: 1px solid var(--borda);
   border-radius: 28px;
@@ -77,8 +76,7 @@ img {
   letter-spacing: -0.04em;
 }
 
-.map-intro p,
-.sidebar-card p {
+.map-intro p {
   margin: 0;
   color: var(--texto-suave);
   line-height: 1.75;
@@ -89,15 +87,7 @@ img {
 }
 
 .map-topbar {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
   margin-bottom: 12px;
-}
-
-.map-intro {
-  flex: 1 1 560px;
 }
 
 .map-intro h2 {
@@ -113,29 +103,22 @@ img {
   white-space: nowrap;
 }
 
-.selected-card-top {
-  flex: 0 0 min(100%, 380px);
-  padding: 18px 20px;
-  border-radius: 22px;
-}
-
 .map-shell-card {
   overflow: hidden;
   padding: 0;
-  border-radius: 0;
-  border-left: 0;
-  border-right: 0;
+  border-radius: 24px;
   background: #ffffff;
 }
 
 .map-bleed {
-  width: calc(100vw - 24px);
-  margin-left: calc(50% - ((100vw - 24px) / 2));
+  width: 75%/*min(100% - 32px, 1248px);*/;
+  margin: 0 auto;
 }
 
 .map-toolbar {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px 18px;
   padding: 16px 18px;
   border-bottom: 1px solid var(--borda);
@@ -147,42 +130,17 @@ img {
   align-items: center;
   gap: 8px;
   color: var(--texto-suave);
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
 #alagoas-map {
-  min-height: 680px;
+  min-height: 580px;
   background:
     radial-gradient(circle at top left, rgba(219, 234, 216, 0.44), transparent 34%),
     linear-gradient(180deg, #f9faf7 0%, #edf4ed 100%);
 }
 
-.sidebar {
-  display: grid;
-  gap: 0;
-}
-
-.sidebar-card {
-  padding: 22px;
-}
-
-.selected-card h3 {
-  margin: 0;
-  color: var(--verde-900);
-  font-size: 1.18rem;
-  line-height: 1.2;
-}
-
-.map-actions {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.btn-prefeitura,
 .btn-map-action {
   display: inline-flex;
   align-items: center;
@@ -200,35 +158,15 @@ img {
     color 0.25s ease;
 }
 
-.btn-prefeitura {
-  width: fit-content;
-  min-width: 190px;
-  background: linear-gradient(180deg, #209149 0%, #0d6d3a 100%);
-  color: #fff;
-  box-shadow: 0 16px 28px rgba(10, 90, 52, 0.16);
-}
-
 .btn-map-action {
   padding: 0.8rem 1rem;
   background: rgba(15, 106, 58, 0.06);
   color: var(--verde-900);
+  margin-left: auto;
 }
 
-.btn-prefeitura:hover,
 .btn-map-action:hover {
   transform: translateY(-1px);
-}
-
-.btn-prefeitura:hover {
-  color: #fff;
-  background: linear-gradient(180deg, #1d8644 0%, #0a5b33 100%);
-}
-
-.btn-prefeitura.disabled {
-  pointer-events: none;
-  background: linear-gradient(180deg, #d7ddd6 0%, #c3cbc4 100%);
-  color: #5d6a61;
-  box-shadow: none;
 }
 
 .sources-line {
@@ -333,12 +271,6 @@ img {
   display: none;
 }
 
-@media (max-width: 1100px) {
-  .map-topbar {
-    flex-direction: column;
-  }
-}
-
 @media (max-width: 767px) {
   .municipios-page {
     padding-bottom: 132px;
@@ -350,13 +282,10 @@ img {
 
   .btn-map-action {
     width: 100%;
-  }
-
-  .btn-prefeitura {
-    min-width: 0;
+    margin-left: 0;
   }
 
   #alagoas-map {
-    min-height: 520px;
+    min-height: 460px;
   }
 }

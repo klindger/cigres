@@ -29,14 +29,11 @@ const INACTIVE_STYLE = {
 
 const HOVER_DELAY_MS = 260;
 
-const municipioNome = document.getElementById('municipioNome');
-const municipioLink = document.getElementById('municipioLink');
 const resetViewButton = document.getElementById('resetViewButton');
 
 let map;
 let geojsonLayer;
 let initialBounds = null;
-let currentFocusCode = null;
 let pendingHoverTimeout = null;
 
 function getActiveBounds() {
@@ -98,35 +95,11 @@ function resetLayerStyle(layer) {
   geojsonLayer.resetStyle(layer);
 }
 
-function disableLink() {
-  municipioLink.classList.add('disabled');
-  municipioLink.setAttribute('aria-disabled', 'true');
-  municipioLink.href = '#';
-}
-
 function clearPendingHover() {
   if (pendingHoverTimeout) {
     window.clearTimeout(pendingHoverTimeout);
     pendingHoverTimeout = null;
   }
-}
-
-function updatePanel(code) {
-  const metadata = MUNICIPIOS_ALAGOAS[code];
-
-  if (!metadata) {
-    currentFocusCode = null;
-    municipioNome.textContent = 'Passe o mouse sobre um município contemplado';
-    disableLink();
-    return;
-  }
-
-  currentFocusCode = code;
-  municipioNome.textContent = metadata.nome;
-
-  municipioLink.classList.remove('disabled');
-  municipioLink.setAttribute('aria-disabled', 'false');
-  municipioLink.href = metadata.prefeitura || '#';
 }
 
 function openPresentation(code) {
@@ -157,7 +130,6 @@ function bindMunicipioEvents(feature, layer) {
       highlightLayer(layer);
       clearPendingHover();
       pendingHoverTimeout = window.setTimeout(() => {
-        updatePanel(code);
         pendingHoverTimeout = null;
       }, HOVER_DELAY_MS);
     },
@@ -230,20 +202,16 @@ async function initMunicipiosMap() {
 
     initialBounds = getActiveBounds();
     map.fitBounds(initialBounds, { padding: [16, 16] });
+    map.zoomIn(1);
     map.setMaxBounds(initialBounds.pad(0.08));
     map.whenReady(() => map.invalidateSize());
-    updatePanel(null);
   } catch (error) {
-    municipioNome.textContent = 'Erro ao carregar o mapa';
-    disableLink();
     console.error(error);
   }
 }
 
 function resetFocusedMunicipio() {
   clearPendingHover();
-  currentFocusCode = null;
-  updatePanel(null);
 
   if (geojsonLayer) {
     geojsonLayer.eachLayer((layer) => resetLayerStyle(layer));

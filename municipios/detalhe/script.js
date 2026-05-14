@@ -1,6 +1,3 @@
-const prefeitoPlaceholder = '/municipios/assets/prefeito-placeholder.svg';
-const brasaoPlaceholder = '/municipios/assets/brasao-placeholder.svg';
-
 const BRASOES_MUNICIPIOS = {
   '2700706': '/src/assets/batalha.png',
   '2700904': '/src/assets/beloM.png',
@@ -16,15 +13,15 @@ const BRASOES_MUNICIPIOS = {
 };
 
 const nomeEl = document.getElementById('municipioNome');
+const breadcrumbEl = document.getElementById('breadcrumbMunicipio');
 const descricaoEl = document.getElementById('municipioDescricao');
 const siteLinkEl = document.getElementById('siteMunicipioLink');
-const mapsLinkEl = document.getElementById('mapsMunicipioLink');
 const prefeitoNomeEl = document.getElementById('prefeitoNome');
-const prefeitoImagemEl = document.getElementById('prefeitoImagem');
-const brasaoImagemEl = document.getElementById('brasaoImagem');
+const vicePrefeitoNomeEl = document.getElementById('vicePrefeitoNome');
 const enderecoEl = document.getElementById('prefeituraEndereco');
-const emailEl = document.getElementById('prefeituraEmail');
-const telefoneEl = document.getElementById('prefeituraTelefone');
+const emailEl = document.getElementById('prefeituraEmailInfo');
+const telefoneEl = document.getElementById('prefeituraTelefoneInfo');
+const marcaEl = document.getElementById('municipioMarca');
 
 function getMunicipioId() {
   return new URLSearchParams(window.location.search).get('id');
@@ -46,18 +43,31 @@ function fillText(element, value, fallback) {
   element.textContent = value && value.trim() ? value.trim() : fallback;
 }
 
+function getPrefeitoNome(municipio) {
+  return municipio.prefeito && municipio.prefeito.trim()
+    ? municipio.prefeito.trim()
+    : '-';
+}
+
+function getVicePrefeitoNome(municipio) {
+  return municipio.vice_prefeito && municipio.vice_prefeito.trim()
+    ? municipio.vice_prefeito.trim()
+    : '-';
+}
+
 function renderMissing() {
   document.title = 'Município não encontrado | CIGRES';
   nomeEl.textContent = 'Município não encontrado';
+  breadcrumbEl.textContent = 'Indisponível';
   descricaoEl.textContent = 'Não foi possível localizar os dados desse município na base local.';
   fillText(prefeitoNomeEl, '', '-');
-  fillText(enderecoEl, '', '-');
-  fillText(emailEl, '', '-');
-  fillText(telefoneEl, '', '-');
-  prefeitoImagemEl.src = prefeitoPlaceholder;
-  brasaoImagemEl.src = brasaoPlaceholder;
+  fillText(vicePrefeitoNomeEl, '', '-');
+  fillText(enderecoEl, '', 'Endereço em atualização.');
+  fillText(emailEl, '', 'E-mail em atualização.');
+  fillText(telefoneEl, '', 'Telefone em atualização.');
+  marcaEl.src = '/src/logo.png';
+  marcaEl.alt = 'Brasão indisponível';
   disableLink(siteLinkEl);
-  disableLink(mapsLinkEl);
 }
 
 async function loadMunicipioData() {
@@ -89,30 +99,21 @@ async function initMunicipioPage() {
 
     document.title = `${municipio.nome} | CIGRES`;
     nomeEl.textContent = municipio.nome;
-    descricaoEl.textContent = 'Dados institucionais da prefeitura, contato oficial e localização do município.';
-    fillText(prefeitoNomeEl, municipio.prefeito, '-');
-    fillText(enderecoEl, municipio.endereco, '-');
-    fillText(emailEl, municipio.email, '-');
-    fillText(telefoneEl, municipio.telefone, '-');
+    breadcrumbEl.textContent = municipio.nome;
+    descricaoEl.textContent = municipio.descricao || '';
+    fillText(prefeitoNomeEl, getPrefeitoNome(municipio), '-');
+    fillText(vicePrefeitoNomeEl, getVicePrefeitoNome(municipio), '-');
+    fillText(enderecoEl, municipio.endereco, 'Endereço em atualização.');
+    fillText(emailEl, municipio.email, 'E-mail em atualização.');
+    fillText(telefoneEl, municipio.telefone, 'Telefone em atualização.');
 
-    prefeitoImagemEl.src = municipio.prefeito_imagem || prefeitoPlaceholder;
-    prefeitoImagemEl.alt = municipio.prefeito
-      ? `Imagem do prefeito de ${municipio.nome}`
-      : `Imagem genérica para ${municipio.nome}`;
-
-    brasaoImagemEl.src = BRASOES_MUNICIPIOS[municipio.codigo] || brasaoPlaceholder;
-    brasaoImagemEl.alt = `Brasão de ${municipio.nome}`;
+    marcaEl.src = BRASOES_MUNICIPIOS[municipio.codigo] || '/src/logo.png';
+    marcaEl.alt = `Brasão de ${municipio.nome}`;
 
     if (municipio.website || municipio.prefeitura) {
       enableLink(siteLinkEl, municipio.website || municipio.prefeitura);
     } else {
       disableLink(siteLinkEl);
-    }
-
-    if (municipio.maps) {
-      enableLink(mapsLinkEl, municipio.maps);
-    } else {
-      disableLink(mapsLinkEl);
     }
   } catch (error) {
     console.error(error);
