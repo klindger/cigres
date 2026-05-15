@@ -1,5 +1,25 @@
 let MUNICIPIOS_ALAGOAS = {};
 
+const MUNICIPIO_ROUTES = {
+  '2700706': 'Batalha',
+  '2700904': 'Belo-Monte',
+  '2701209': 'Cacimbinhas',
+  '2701803': 'Carneiros',
+  '2702504': 'Dois-Riachos',
+  '2703403': 'Jacare-Dos-Homens',
+  '2703700': 'Jaramataia',
+  '2704401': 'Major-Isidoro',
+  '2704609': 'Maravilha',
+  '2705408': 'Monteiropolis',
+  '2705705': 'Olho-dAgua-das-Flores',
+  '2706000': 'Olivenca',
+  '2706208': 'Palestina',
+  '2706406': 'Pao-de-Acucar',
+  '2708006': 'Santana-do-Ipanema',
+  '2708402': 'Sao-Jose-da-Tapera',
+  '2708956': 'Senador-Rui-Palmeira',
+};
+
 const MUNICIPIO_COLORS = {
   '2700706': '#5b8f29',
   '2700904': '#0f766e',
@@ -53,7 +73,8 @@ function isMunicipioAtivo(code) {
 }
 
 function getPresentationUrl(code) {
-  return `/municipios/detalhe/?id=${code}`;
+  const route = MUNICIPIO_ROUTES[code];
+  return route ? `/municipios/Detalhes/pages/${route}/` : '/municipios/';
 }
 
 function getActiveStyle(code) {
@@ -171,7 +192,7 @@ async function loadGeoJson() {
 }
 
 async function loadMunicipiosData() {
-  const response = await fetch('/municipios/municipios-dados.json');
+  const response = await fetch('/municipios/Detalhes/Componentes/Data/dados-municipios.json');
 
   if (!response.ok) {
     throw new Error('Não foi possível carregar a base dos municípios.');
@@ -184,6 +205,7 @@ async function loadMunicipiosData() {
       {
         nome: item.nome,
         prefeitura: item.website || item.prefeitura || '#',
+        route: MUNICIPIO_ROUTES[item.codigo] || null,
       },
     ])
   );

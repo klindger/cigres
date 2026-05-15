@@ -41,31 +41,8 @@
       position: relative;
       isolation: isolate;
       min-height: 100vh;
-    }
-
-    .transparencia-hero {
-      min-height: 420px;
-      display: grid;
-      place-items: center;
-      padding: 96px 20px 72px;
-      text-align: center;
-    }
-
-    .transparencia-content {
-      max-width: 780px;
-    }
-
-    .transparencia-icon {
-      display: inline-grid;
-      place-items: center;
-      width: 76px;
-      height: 76px;
-      margin-bottom: 26px;
-      border-radius: 999px;
-      color: #fff;
-      background: var(--verde-700);
-      font-size: 2rem;
-      box-shadow: 0 18px 36px rgba(22, 133, 59, 0.18);
+      display: flex;
+      flex-direction: column;
     }
 
     h1 {
@@ -76,25 +53,18 @@
       font-weight: 800;
     }
 
-    p {
-      margin: 22px auto 0;
-      color: #40504a;
-      font-size: 1.08rem;
-      line-height: 1.75;
-      font-weight: 500;
-    }
-
     .container-narrow {
       width: min(100% - 32px, 1180px);
       margin: 0 auto;
     }
 
     .section {
-      padding: 0 0 88px;
+      flex: 1;
+      padding: 52px 0 154px;
     }
 
     .section-header {
-      max-width: 760px;
+      max-width: none;
       margin: 0 0 36px;
     }
 
@@ -110,10 +80,11 @@
     .section-header h2 {
       margin: 16px 0 12px;
       color: var(--verde-900);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: 2.5rem;
       line-height: 1.02;
       letter-spacing: -0.04em;
       font-weight: 800;
+      white-space: nowrap;
     }
 
     .section-header p {
@@ -121,6 +92,7 @@
       color: var(--texto-suave);
       font-size: 1.02rem;
       line-height: 1.78;
+      white-space: nowrap;
     }
 
     .docs-card {
@@ -147,21 +119,34 @@
     }
 
     .doc-link {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       padding: 22px;
       border-radius: 20px;
       background: #f8fbf8;
       border: 1px solid rgba(9, 67, 38, 0.1);
+      min-height: 100%;
+      color: inherit;
+      text-decoration: none;
       transition:
         transform 0.22s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease;
     }
 
-    .doc-link:hover {
+    .doc-link:hover,
+    .doc-link:focus {
       transform: translateY(-2px);
       border-color: rgba(23, 135, 66, 0.32);
       box-shadow: 0 16px 36px rgba(10, 67, 39, 0.1);
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .doc-link:focus-visible {
+      outline: 3px solid rgba(23, 135, 66, 0.34);
+      outline-offset: 3px;
     }
 
     .doc-link strong {
@@ -180,13 +165,8 @@
     }
 
     @media (max-width: 720px) {
-      .transparencia-hero {
-        min-height: 360px;
-        padding: 74px 20px 52px;
-      }
-
       .section {
-        padding-bottom: 64px;
+        padding-bottom: 118px;
       }
 
       .docs-grid {
@@ -203,28 +183,11 @@
   <div class="page-shell">
     <site-header active="transparencia"></site-header>
 
-    <main class="transparencia-hero">
-      <div class="transparencia-content">
-        <div class="transparencia-icon" aria-hidden="true">
-          <i class="bi bi-bar-chart-line"></i>
-        </div>
-
-        <h1>Transparência</h1>
-        <p>
-          Esta é uma visualização inicial da página de Transparência. Aqui você poderá organizar documentos, prestação de contas, relatórios e informações públicas do CIGRES.
-        </p>
-      </div>
-    </main>
-
     <section class="section">
       <div class="container-narrow">
         <div class="section-header">
-          <span>Documentos</span>
           <h2>Arquivos institucionais vinculados ao consórcio</h2>
-          <p>
-            Esta área reúne documentos institucionais do CIGRES para consulta pública. Os links abaixo foram
-            preservados a partir da página arquivada do portal Resíduos Alagoas.
-          </p>
+          <p>Esta área reúne documentos institucionais do CIGRES para consulta pública.</p>
         </div>
 
         <article class="docs-card">

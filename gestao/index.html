@@ -11,44 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <site-header></site-header>
+  <div class="page-shell">
+    <site-header></site-header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="tag">Gestão Inteligente</span>
-        <h1>Do descarte à destinação final: uma gestão integrada para Alagoas.</h1>
-        <p>
-          Conheça como o CIGRES organiza, monitora e apoia a gestão dos resíduos sólidos,
-          promovendo soluções sustentáveis, transparência pública e eficiência operacional.
-        </p>
-        <div class="hero-actions">
-          <a href="#processo" class="btn primary">Ver como funciona</a>
-          <a href="#indicadores" class="btn secondary">Acompanhar indicadores</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="quick-stats" aria-label="Resumo da gestão">
-      <article>
-        <strong>14+</strong>
-        <span>Municípios integrados</span>
-      </article>
-      <article>
-        <strong>420 mil</strong>
-        <span>Habitantes atendidos</span>
-      </article>
-      <article>
-        <strong>97%</strong>
-        <span>Cobertura operacional</span>
-      </article>
-      <article>
-        <strong>2.800 t</strong>
-        <span>Resíduos/mês monitorados</span>
-      </article>
-    </section>
-
+    <main>
     <section id="processo" class="section">
       <div class="section-title">
         <span>Fluxo Operacional</span>
@@ -112,59 +78,10 @@
       </div>
     </section>
 
-    <section id="atuacao" class="section two-columns">
-      <div>
-        <span class="eyebrow">Área de Atuação</span>
-        <h2>Planejamento regional e apoio aos municípios</h2>
-        <p>
-          A gestão inteligente conecta municípios, equipes técnicas e políticas públicas para melhorar
-          a coleta, o tratamento, a destinação e a educação ambiental em todo o território atendido.
-        </p>
-        <a href="#transparencia" class="btn primary small">Ver documentos</a>
-      </div>
+    </main>
 
-      <div class="feature-list">
-        <article><strong>Planejamento intermunicipal</strong><span>Planos, metas e ações integradas entre os municípios participantes.</span></article>
-        <article><strong>Encerramento de lixões</strong><span>Apoio técnico para substituição por soluções ambientalmente corretas.</span></article>
-        <article><strong>Educação ambiental</strong><span>Campanhas, orientação à população e ações em escolas e comunidades.</span></article>
-        <article><strong>Inclusão produtiva</strong><span>Fortalecimento de cooperativas, reciclagem e economia circular.</span></article>
-      </div>
-    </section>
-
-    <section id="indicadores" class="section dashboard">
-      <div class="section-title light">
-        <span>Dados Públicos</span>
-        <h2>Indicadores da gestão</h2>
-        <p>Use esta área para exibir números reais do consórcio, atualizados pela equipe administrativa.</p>
-      </div>
-
-      <div class="indicator-grid">
-        <article><strong>34.200 t</strong><span>Resíduos coletados no ano</span></article>
-        <article><strong>12.800 t</strong><span>Materiais recuperados</span></article>
-        <article><strong>26</strong><span>Rotas operacionais</span></article>
-        <article><strong>18</strong><span>Projetos ambientais</span></article>
-      </div>
-    </section>
-
-    <section id="transparencia" class="section transparency">
-      <div class="section-title">
-        <span>Transparência</span>
-        <h2>Documentos e acompanhamento</h2>
-        <p>Área indicada para disponibilizar relatórios, contratos, licitações, indicadores e planos técnicos.</p>
-      </div>
-
-      <div class="document-grid">
-        <a href="#">Relatórios técnicos</a>
-        <a href="#">Plano de gestão</a>
-        <a href="#">Licitações</a>
-        <a href="#">Contratos</a>
-        <a href="#">Indicadores ambientais</a>
-        <a href="#">Ouvidoria</a>
-      </div>
-    </section>
-  </main>
-
-  <site-footer></site-footer>
+    <site-footer></site-footer>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
   <script src="/src/componentes/site-components.js" defer></script>
 </body>

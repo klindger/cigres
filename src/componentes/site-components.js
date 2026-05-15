@@ -1,4 +1,15 @@
 const componentStyles = `
+  .page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-shell > site-footer {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -205,7 +216,7 @@ class SiteHeader extends HTMLElement {
         <nav class="navbar navbar-expand-lg">
           <div class="container-wide">
             <a class="navbar-brand" href="/src/index.html" aria-label="CIGRES">
-              <img src="/src/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
+              <img src="/src/assets/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
@@ -217,10 +228,8 @@ class SiteHeader extends HTMLElement {
                 ${navLink("Início", "/src/index.html", "home", active)}
                 ${navLink("O Consórcio", "/consorcio", "consorcio", active)}
                 ${navLink("Municípios", "/municipios", "municipios", active)}
-                ${navLink("Serviços", "/#servicos", "servicos", active)}
                 ${navLink("Transparência", "/transparencia", "transparencia", active)}
                 ${navLink("Notícias", "/#noticias", "noticias", active)}
-                ${navLink("Contato", "/#contato", "contato", active)}
               </ul>
             </div>
           </div>
@@ -236,9 +245,9 @@ class SiteFooter extends HTMLElement {
 
     this.innerHTML = `
       <footer class="footer">
-        <img class="footer-wave footer-wave-label-0" src="/src/wave%20(2).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-1" src="/src/wave%20(1).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-2" src="/src/wave.svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-0" src="/src/assets/wave%20(2).svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-1" src="/src/assets/wave%20(1).svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-2" src="/src/assets/wave.svg" alt="" aria-hidden="true">
 
         <div class="footer-content">
           <p>
