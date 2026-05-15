@@ -7,8 +7,8 @@
     "telefone": "(82) 9 8828-3716",
     "email": "prefeitura@batalha.al.gov.br",
     "endereco": "Padre Daniel Bezerra, Nº: 99, Centro \nCEP: 57420-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/BatalhaPrefeito.png",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/BatalhaBrasao.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/BatalhaPrefeito.png",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/BatalhaBrasao.png"
   },
   {
     "codigo": "2700904",
@@ -18,8 +18,8 @@
     "telefone": "+55 (82) 3532-0009 / 3532-0005",
     "email": "prefeituradebelomonte.al@gmail.com",
     "endereco": "Travessa Cônego Jasson Souto, nº 44, Centro de Belo Monte \nCEP: 57.435-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/BeloMontePrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/BeloMonteBrasao.jpg"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/BeloMontePrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/BeloMonteBrasao.jpg"
   },
   {
     "codigo": "2701209",
@@ -29,8 +29,8 @@
     "telefone": "(82) 3422-1192",
     "email": "gabinete@cacimbinhas.al.gov.br",
     "endereco": "Praça 19 de Setembro, 101, Centro, Cacimbinhas - Alagoas\nCEP: 57570-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/CacimbinhasPrefeito.JPG",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/CacimbinhasBrasao.jpg"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/CacimbinhasPrefeito.JPG",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/CacimbinhasBrasao.jpg"
   },
   {
     "codigo": "2701803",
@@ -40,8 +40,8 @@
     "telefone": "(82) 3627-1155",
     "email": "sec.administracao@carneiros.al.gov.br",
     "endereco": "Praça – R. Cônego José Bulhões, 100 – Centro, Carneiros – AL \nCEP: 57535-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/CarneirosPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/CarneirosBandeira.webp"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/CarneirosPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/CarneirosBandeira.webp"
   },
   {
     "codigo": "2702504",
@@ -51,8 +51,8 @@
     "telefone": "(82) 3620-1486",
     "email": "doisriachos.adm@gmail.com",
     "endereco": "Av. Miguel V de Novaes 100 - Centro - Dois Riachos/AL\nCEP: 57560-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/DoisRiachosPrefeito.jpeg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/DoisRiachosBrasao.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/DoisRiachosPrefeito.jpeg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/DoisRiachosBrasao.png"
   },
   {
     "codigo": "2703403",
@@ -62,8 +62,8 @@
     "telefone": "(82) 3534-1194",
     "email": "prefjdoshomens@gmail.com",
     "endereco": "Rua José Alves Feitosa - Centro - Jacaré dos Homens/AL\nCEP: 57430-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/JacareDosHomensPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/JacareDosHomensBrasao.webp"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/JacareDosHomensPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/JacareDosHomensBrasao.webp"
   },
   {
     "codigo": "2703700",
@@ -74,7 +74,7 @@
     "email": "Dados a serem informados.",
     "endereco": "RUA PROFSSOR DERALDO CAMPOS Nº 209 \nCEP: 57425-000",
     "prefeito_src": "",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/JaramataiaBandeira.png"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/JaramataiaBrasao.png"
   },
   {
     "codigo": "2704401",
@@ -85,7 +85,7 @@
     "email": "Dados a serem informados.",
     "endereco": "Praça Leopoldo Amaral, 97 - Centro - Major Izidoro/AL \nCEP: 57580-000",
     "prefeito_src": "",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/MajorIzidoroBandeira.png"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/MajorIzidoroBandeira.png"
   },
   {
     "codigo": "2704609",
@@ -95,8 +95,8 @@
     "telefone": "(82) 3625-1123",
     "email": "prefmaravilha.gabinete@gmail.com",
     "endereco": "Praça Francisco Soares, 29 - Centro\nCEP: 57.520-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/boneco.svg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/MaravilhaBrasao.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/MaravilhaBrasao.png"
   },
   {
     "codigo": "2705408",
@@ -106,7 +106,7 @@
     "telefone": "+55 (82) 3255-1145 / 3255-1147",
     "email": "prefeito@monteiropolis.al.gov.b",
     "endereco": "Travessa Municipal, S/N, Centro",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/MonteiropolisPrefeito.jpg",
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/MonteiropolisPrefeito.jpg",
     "emblema_src": ""
   },
   {
@@ -117,8 +117,8 @@
     "telefone": "(82) 3623-1280",
     "email": "Dados a serem informados.",
     "endereco": "Praça Padre José de Souza Leite, Nº 60 - Centro\nCEP: 57.442-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/OlhoDaguaDasFloresPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/OlhaDaguaDasFloresBandeira.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/OlhoDaguaDasFloresPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/OlhaDaguaDasFloresBandeira.png"
   },
   {
     "codigo": "2706000",
@@ -128,8 +128,8 @@
     "telefone": "(82) 3632-1142",
     "email": "contato@olivenca.al.gov.br",
     "endereco": "RUA VEREADOR JOSÉ FELIX DA SILVA, 54 CENTRO\nCEP: 57550-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/OlivencaPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/OlivencaBrasao.webp"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/OlivencaPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/OlivencaBrasao.webp"
   },
   {
     "codigo": "2706208",
@@ -139,8 +139,8 @@
     "telefone": "(82) 3631-1128",
     "email": "gabinete@palestina.al.gov.br",
     "endereco": "Pc Jose Tomaz Nono Neto, 101, Centro - Palestina - Alagoas\nCEP: 57410-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/boneco.svg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/PalestinaBrasao.webp"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/PalestinaBrasao.webp"
   },
   {
     "codigo": "2706406",
@@ -150,8 +150,8 @@
     "telefone": "(82) 3624-1263",
     "email": "faleconosco@paodeacucar.al.gov.br",
     "endereco": "Av. Braulio Cavalcante, 607, Centro - Pão de Açúcar - Alagoas\nCEP: 57400-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/PaoDeAcucarPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/PaoDeAcucarBandeira.jpg"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/PaoDeAcucarPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/PaoDeAcucarBandeira.jpg"
   },
   {
     "codigo": "2708006",
@@ -161,8 +161,8 @@
     "telefone": "+55 82 3621-3280",
     "email": "Dados a serem informados.",
     "endereco": "R. Cel Lucena Maranhão, nº 141, Centro - Santana do Ipanema, AL\nCep: 57500-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SantanaIpanemaPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SantanaIpanemaBrasao.jpg"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/SantanaIpanemaPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/SantanaIpanemaBrasao.jpg"
   },
   {
     "codigo": "2708402",
@@ -172,8 +172,8 @@
     "telefone": "(82) 9306-7508",
     "email": "gabinete.prefeito@saojosedatapera.al.gov.br",
     "endereco": "Av. Elísio Maia, 209, Centro - São José da Tapera - Alagoas\nCEP: 57445-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaPrefeito.jpg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaBandeira.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaPrefeito.jpg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaBandeira.png"
   },
   {
     "codigo": "2708956",
@@ -183,7 +183,7 @@
     "telefone": "(82)3634-1173",
     "email": "prefeiturasrp@hotmail.com",
     "endereco": "Rua Santa Terezinha, 19 - Centro \nCEP: 57515-000",
-    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraPrefeito.jpeg",
-    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraBandeira.png"
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraPrefeito.jpeg",
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraBandeira.png"
   }
 ]

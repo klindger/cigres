@@ -86,7 +86,7 @@
     .hero {
       position: relative;
       min-height: 720px;
-      background-image: url("/src/assets/banner.png");
+      background-image: url("/assets/banner.png");
       background-position: center center;
       background-size: cover;
       overflow: hidden;
@@ -585,7 +585,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn-main" href="/inicio/consorcio">
+              <a class="btn-main" href="/consorcio">
                 <i class="bi bi-leaf-fill" aria-hidden="true"></i>
                 <span>Conheça o Consórcio</span>
               </a>
@@ -600,7 +600,7 @@
           <div class="values-card">
             <div class="row g-0">
               <article class="col-md-6 col-xl-3 value-item">
-                <a class="value-link" href="/inicio/municipios" aria-label="Abrir página de Municípios">
+                <a class="value-link" href="/municipios" aria-label="Abrir página de Municípios">
                   <span class="value-icon" aria-hidden="true"><i class="bi bi-people"></i></span>
                   <h2>Integração</h2>
                   <p>União de municípios em prol de soluções sustentáveis.</p>
@@ -608,7 +608,7 @@
               </article>
 
               <article class="col-md-6 col-xl-3 value-item">
-                <a class="value-link" href="/inicio/consorcio" aria-label="Abrir página do Consórcio">
+                <a class="value-link" href="/consorcio" aria-label="Abrir página do Consórcio">
                   <span class="value-icon" aria-hidden="true"><i class="bi bi-flower1"></i></span>
                   <h2>Sustentabilidade</h2>
                   <p>Compromisso com o meio ambiente e as futuras gerações.</p>
@@ -616,7 +616,7 @@
               </article>
 
               <article class="col-md-6 col-xl-3 value-item">
-                <a class="value-link" href="/inicio/gestao" aria-label="Abrir página de Municípios">
+                <a class="value-link" href="/gestao" aria-label="Abrir página de Municípios">
                   <span class="value-icon" aria-hidden="true"><i class="bi bi-recycle"></i></span>
                   <h2>Gestão Eficiente</h2>
                   <p>Planejamento, tecnologia e boas práticas na gestão de resíduos.</p>
@@ -624,7 +624,7 @@
               </article>
 
               <article class="col-md-6 col-xl-3 value-item" id="transparencia">
-                <a class="value-link" href="/inicio/transparencia" aria-label="Abrir página de Transparência">
+                <a class="value-link" href="/transparencia" aria-label="Abrir página de Transparência">
                   <span class="value-icon" aria-hidden="true"><i class="bi bi-bar-chart-line"></i></span>
                   <h2>Transparência</h2>
                   <p>Gestão clara e responsável com prestação de contas e participação pública.</p>
@@ -637,8 +637,8 @@
 
       <section class="objectives" id="iniciativas">
         <div class="container-wide">
-          <h2><a href="/inicio/noticias">Notícias</a></h2>
-          <div class="objective-list articles-list" id="homeNewsList" data-news-source="/inicio/noticias/Data/noticias.json">
+          <h2><a href="/noticias">Notícias</a></h2>
+          <div class="objective-list articles-list" id="homeNewsList" data-news-source="/noticias/Data/noticias.json">
             <p>Carregando notícias...</p>
           </div>
           <div class="objective-list">
@@ -677,7 +677,7 @@
     </main>
     <site-footer></site-footer>
   </div>
-  <script src="/src/componentes/site-components.js" defer></script>
+  <script src="/js/site-components.js" defer></script>
   <script>
     function parseHomeNewsDateTime(news) {
       const [day, month, year] = String(news.dataPublicacao || "").split("/").map(Number);
@@ -693,8 +693,8 @@
       const link = document.createElement("a");
       link.className = "article-link";
       link.href = news.id
-        ? `/inicio/noticias/noticia/?id=${encodeURIComponent(news.id)}`
-        : "/inicio/noticias";
+        ? `/noticias/noticia/?id=${encodeURIComponent(news.id)}`
+        : "/noticias";
 
       const image = document.createElement("img");
       image.className = "article-image";

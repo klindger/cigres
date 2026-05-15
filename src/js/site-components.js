@@ -215,8 +215,8 @@ class SiteHeader extends HTMLElement {
       <header class="site-header">
         <nav class="navbar navbar-expand-lg">
           <div class="container-wide">
-            <a class="navbar-brand" href="/inicio/" aria-label="CIGRES">
-              <img src="/src/assets/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
+            <a class="navbar-brand" href="/" aria-label="CIGRES">
+              <img src="/assets/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
@@ -225,12 +225,12 @@ class SiteHeader extends HTMLElement {
 
             <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
               <ul class="navbar-nav mb-3 mb-lg-0">
-                ${navLink("Início", "/inicio/", "home", active)}
-                ${navLink("O Consórcio", "/inicio/consorcio", "consorcio", active)}
-                ${navLink("Municípios", "/inicio/municipios", "municipios", active)}
-                ${navLink("Serviços", "/inicio/gestao", "gestao", active)}
-                ${navLink("Transparência", "/inicio/transparencia", "transparencia", active)}
-                ${navLink("Notícias", "/inicio/noticias", "noticias", active)}
+                ${navLink("Início", "/", "home", active)}
+                ${navLink("O Consórcio", "/consorcio", "consorcio", active)}
+                ${navLink("Municípios", "/municipios", "municipios", active)}
+                ${navLink("Serviços", "/gestao", "gestao", active)}
+                ${navLink("Transparência", "/transparencia", "transparencia", active)}
+                ${navLink("Notícias", "/noticias", "noticias", active)}
               </ul>
             </div>
           </div>
@@ -246,9 +246,9 @@ class SiteFooter extends HTMLElement {
 
     this.innerHTML = `
       <footer class="footer">
-        <img class="footer-wave footer-wave-label-0" src="/src/assets/wave%20(2).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-1" src="/src/assets/wave%20(1).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-2" src="/src/assets/wave.svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-0" src="/assets/wave%20(2).svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-1" src="/assets/wave%20(1).svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-2" src="/assets/wave.svg" alt="" aria-hidden="true">
 
         <div class="footer-content">
           <p>

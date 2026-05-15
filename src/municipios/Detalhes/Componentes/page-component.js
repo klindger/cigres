@@ -1,5 +1,5 @@
-const DEFAULT_PREFEITO_IMAGE = '/inicio/municipios/Detalhes/Componentes/assets/boneco.svg';
-const MUNICIPIO_DATA_URL = '/inicio/municipios/Detalhes/Componentes/Data/dados-municipios.json';
+const DEFAULT_PREFEITO_IMAGE = '/municipios/Detalhes/Componentes/assets/boneco.svg';
+const MUNICIPIO_DATA_URL = '/municipios/Detalhes/Componentes/Data/dados-municipios.json';
 
 let municipioDataPromise;
 
@@ -131,9 +131,9 @@ class MunicipioDetalhePage extends HTMLElement {
         <section class="municipio-detalhe-section">
           <div class="container-wide">
             <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-              <a href="/inicio/">Início</a>
+              <a href="/">Início</a>
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
-              <a href="/inicio/municipios/">Municípios</a>
+              <a href="/municipios/">Municípios</a>
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
               <span>${escapeAttr(nome)}</span>
             </nav>

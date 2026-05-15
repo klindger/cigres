@@ -74,7 +74,7 @@ function isMunicipioAtivo(code) {
 
 function getPresentationUrl(code) {
   const route = MUNICIPIO_ROUTES[code];
-  return route ? `/inicio/municipios/Detalhes/pages/${route}/` : '/inicio/municipios/';
+  return route ? `/municipios/Detalhes/pages/${route}/` : '/municipios/';
 }
 
 function getActiveStyle(code) {
@@ -182,7 +182,7 @@ function createMap() {
 }
 
 async function loadGeoJson() {
-  const response = await fetch('/inicio/municipios/alagoas-municipios.geojson');
+  const response = await fetch('/municipios/alagoas-municipios.geojson');
 
   if (!response.ok) {
     throw new Error('Não foi possível carregar o GeoJSON dos municípios.');
@@ -192,7 +192,7 @@ async function loadGeoJson() {
 }
 
 async function loadMunicipiosData() {
-  const response = await fetch('/inicio/municipios/Detalhes/Componentes/Data/dados-municipios.json');
+  const response = await fetch('/municipios/Detalhes/Componentes/Data/dados-municipios.json');
 
   if (!response.ok) {
     throw new Error('Não foi possível carregar a base dos municípios.');
