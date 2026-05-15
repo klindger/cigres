@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Imagem padrão de prefeito">
+  <rect width="320" height="320" rx="28" fill="#F5F8F6"/>
+  <circle cx="160" cy="116" r="54" fill="#D8E6DA"/>
+  <path d="M76 286C82 238 115 210 160 210C205 210 238 238 244 286" fill="#D8E6DA"/>
+  <path d="M160 177C190.376 177 215 152.376 215 122C215 91.6243 190.376 67 160 67C129.624 67 105 91.6243 105 122C105 152.376 129.624 177 160 177Z" stroke="#2A7D46" stroke-width="12"/>
+  <path d="M119 276C119 254.4 137.4 237 159 237H161C182.6 237 201 254.4 201 276V286H119V276Z" fill="#2A7D46"/>
+  <path d="M78 286C83 242 115.5 216 160 216C204.5 216 237 242 242 286" stroke="#2A7D46" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="160" cy="122" r="15" fill="#2A7D46"/>
+</svg>
