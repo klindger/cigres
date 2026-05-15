@@ -230,7 +230,7 @@ class SiteHeader extends HTMLElement {
                 ${navLink("Municípios", "/inicio/municipios", "municipios", active)}
                 ${navLink("Serviços", "/inicio/gestao", "gestao", active)}
                 ${navLink("Transparência", "/inicio/transparencia", "transparencia", active)}
-                ${navLink("Notícias", "/inicio/#noticias", "noticias", active)}
+                ${navLink("Notícias", "/inicio/noticias", "noticias", active)}
               </ul>
             </div>
           </div>

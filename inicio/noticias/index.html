@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notícias - CIGRES</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/inicio/noticias/style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="page-shell">
+    <site-header active="noticias"></site-header>
+
+    <main>
+      <section class="news-section" aria-label="Lista de notícias">
+        <div class="container-wide">
+          <div class="news-list" id="newsList" data-news-source="/inicio/noticias/Data/noticias.json">
+            <p class="news-empty">Carregando notícias...</p>
+          </div>
+          <nav class="news-pagination" id="newsPagination" aria-label="Paginação de notícias"></nav>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+
+  <script src="/src/componentes/site-components.js" defer></script>
+  <script>
+    const NEWS_PER_PAGE = 10;
+    let allNews = [];
+    let currentPage = 1;
+
+    function createNewsItem(news) {
+      const article = document.createElement("article");
+      article.className = "news-item";
+
+      const meta = document.createElement("p");
+      meta.className = "news-meta";
+      meta.textContent = `Publicado em ${news.dataPublicacao}`;
+
+      const row = document.createElement("div");
+      row.className = "news-row";
+
+      const image = document.createElement("img");
+      image.className = "news-image";
+      image.src = news.imagem;
+      image.alt = `Imagem da notícia: ${news.titulo}`;
+
+      const imageBlock = document.createElement("div");
+      imageBlock.className = "news-image-block";
+      imageBlock.append(meta, image);
+
+      const content = document.createElement("div");
+      content.className = "news-content";
+
+      const title = document.createElement("h2");
+      title.className = "news-title";
+
+      const titleLink = document.createElement("a");
+      configureNewsLink(titleLink, news.id);
+      titleLink.textContent = news.titulo;
+      title.append(titleLink);
+
+      const summary = document.createElement("p");
+      summary.className = "news-summary";
+      summary.textContent = news.texto;
+
+      content.append(title, summary);
+      row.append(imageBlock, content);
+      article.append(row);
+
+      return article;
+    }
+
+    function configureNewsLink(linkElement, id) {
+      linkElement.href = id
+        ? `/inicio/noticias/noticia/?id=${encodeURIComponent(id)}`
+        : "#";
+    }
+
+    function parseBrazilianDateTime(news) {
+      const [day, month, year] = String(news.dataPublicacao || "").split("/").map(Number);
+      const [hour = 0, minute = 0] = String(news.horaPublicacao || "00:00").split(":").map(Number);
+
+      return new Date(year || 0, (month || 1) - 1, day || 1, hour, minute).getTime();
+    }
+
+    function sortNewsByMostRecent(news) {
+      return [...news].sort((a, b) => parseBrazilianDateTime(b) - parseBrazilianDateTime(a));
+    }
+
+    function getTotalPages(news) {
+      return Math.max(1, Math.ceil(news.length / NEWS_PER_PAGE));
+    }
+
+    function renderNews(newsList, news, page = 1) {
+      newsList.textContent = "";
+
+      if (!Array.isArray(news) || news.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.className = "news-empty";
+        emptyMessage.textContent = "Nenhuma notícia disponível no momento.";
+        newsList.append(emptyMessage);
+        return;
+      }
+
+      const totalPages = getTotalPages(news);
+      currentPage = Math.min(Math.max(page, 1), totalPages);
+
+      const start = (currentPage - 1) * NEWS_PER_PAGE;
+      const pageItems = news.slice(start, start + NEWS_PER_PAGE);
+
+      pageItems.forEach((item) => {
+        newsList.append(createNewsItem(item));
+      });
+    }
+
+    function createPaginationButton(label, page, options = {}) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "news-page-button";
+      button.textContent = label;
+      button.disabled = options.disabled || false;
+
+      if (options.active) {
+        button.classList.add("is-active");
+        button.setAttribute("aria-current", "page");
+      }
+
+      button.addEventListener("click", () => {
+        if (!button.disabled) {
+          renderPage(page, { scrollToTop: true });
+        }
+      });
+
+      return button;
+    }
+
+    function renderPagination(pagination, news) {
+      pagination.textContent = "";
+
+      if (!Array.isArray(news) || news.length <= NEWS_PER_PAGE) {
+        return;
+      }
+
+      const totalPages = getTotalPages(news);
+      pagination.append(
+        createPaginationButton("Anterior", currentPage - 1, { disabled: currentPage === 1 })
+      );
+
+      for (let page = 1; page <= totalPages; page += 1) {
+        pagination.append(
+          createPaginationButton(String(page), page, { active: page === currentPage })
+        );
+      }
+
+      pagination.append(
+        createPaginationButton("Próxima", currentPage + 1, { disabled: currentPage === totalPages })
+      );
+    }
+
+    function scrollToNewsTop() {
+      const newsSection = document.querySelector(".news-section");
+      const headerOffset = 122;
+      const top = newsSection
+        ? newsSection.getBoundingClientRect().top + window.scrollY - headerOffset
+        : 0;
+
+      window.scrollTo({
+        top: Math.max(top, 0),
+        behavior: "smooth"
+      });
+    }
+
+    function renderPage(page, options = {}) {
+      const newsList = document.getElementById("newsList");
+      const pagination = document.getElementById("newsPagination");
+
+      renderNews(newsList, allNews, page);
+      renderPagination(pagination, allNews);
+
+      if (options.scrollToTop) {
+        scrollToNewsTop();
+      }
+    }
+
+    async function loadNews() {
+      const newsList = document.getElementById("newsList");
+      const source = newsList.dataset.newsSource;
+      const pagination = document.getElementById("newsPagination");
+
+      try {
+        const response = await fetch(source, { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error("Não foi possível carregar o JSON de notícias.");
+        }
+
+        const news = await response.json();
+        allNews = Array.isArray(news) ? sortNewsByMostRecent(news) : [];
+        renderPage(1);
+      } catch (error) {
+        console.error(error);
+        allNews = [];
+        renderNews(newsList, allNews);
+        renderPagination(pagination, allNews);
+      }
+    }
+
+    loadNews();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
