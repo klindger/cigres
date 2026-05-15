@@ -6,7 +6,7 @@
   <title>Notícias - CIGRES</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/inicio/noticias/style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
   <div class="page-shell">
@@ -15,7 +15,7 @@
     <main>
       <section class="news-section" aria-label="Lista de notícias">
         <div class="container-wide">
-          <div class="news-list" id="newsList" data-news-source="/inicio/noticias/Data/noticias.json">
+          <div class="news-list" id="newsList" data-news-source="Data/noticias.json">
             <p class="news-empty">Carregando notícias...</p>
           </div>
           <nav class="news-pagination" id="newsPagination" aria-label="Paginação de notícias"></nav>
@@ -26,7 +26,7 @@
     <site-footer></site-footer>
   </div>
 
-  <script src="/src/componentes/site-components.js" defer></script>
+  <script src="../js/site-components.js" defer></script>
   <script>
     const NEWS_PER_PAGE = 10;
     let allNews = [];
@@ -76,7 +76,7 @@
 
     function configureNewsLink(linkElement, id) {
       linkElement.href = id
-        ? `/inicio/noticias/noticia/?id=${encodeURIComponent(id)}`
+        ? `noticia/?id=${encodeURIComponent(id)}`
         : "#";
     }
 

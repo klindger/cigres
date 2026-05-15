@@ -1,5 +1,8 @@
-const DEFAULT_PREFEITO_IMAGE = '/inicio/municipios/Detalhes/Componentes/assets/boneco.svg';
-const MUNICIPIO_DATA_URL = '/inicio/municipios/Detalhes/Componentes/Data/dados-municipios.json';
+const COMPONENT_SCRIPT_URL = document.currentScript?.src || new URL('municipios/Detalhes/Componentes/page-component.js', document.baseURI).href;
+const COMPONENT_BASE_URL = new URL('./', COMPONENT_SCRIPT_URL);
+const SITE_BASE_URL = new URL('../../../', COMPONENT_SCRIPT_URL);
+const DEFAULT_PREFEITO_IMAGE = new URL('assets/boneco.svg', COMPONENT_BASE_URL).href;
+const MUNICIPIO_DATA_URL = new URL('Data/dados-municipios.json', COMPONENT_BASE_URL).href;
 
 let municipioDataPromise;
 
@@ -13,6 +16,18 @@ function escapeAttr(value) {
 
 function valueOrFallback(value, fallback) {
   return value && value.trim() ? value.trim() : fallback;
+}
+
+function siteUrl(path) {
+  return new URL(path.replace(/^\/+/, ''), SITE_BASE_URL).href;
+}
+
+function resolveLocalPath(path) {
+  if (!path || /^(https?:|file:|data:|blob:|mailto:|tel:)/i.test(path)) {
+    return path;
+  }
+
+  return siteUrl(path);
 }
 
 async function loadMunicipioData() {
@@ -118,22 +133,33 @@ class MunicipioDetalhePage extends HTMLElement {
     const telefone = valueOrFallback(municipio.telefone, 'Dados a serem informados.');
     const email = valueOrFallback(municipio.email, 'Dados a serem informados.');
     const endereco = valueOrFallback(municipio.endereco, 'Dados a serem informados.');
-    const prefeitoSrc = valueOrFallback(municipio.prefeito_src, DEFAULT_PREFEITO_IMAGE);
+    const prefeitoSrc = resolveLocalPath(valueOrFallback(municipio.prefeito_src, DEFAULT_PREFEITO_IMAGE));
     const prefeitoAlt = valueOrFallback(
       municipio.prefeito_alt,
       `Imagem padrão de prefeito de ${nome}`
     );
-    const emblemaSrc = valueOrFallback(municipio.emblema_src, '');
+    const emblemaSrc = resolveLocalPath(valueOrFallback(municipio.emblema_src, ''));
     const emblemaAlt = valueOrFallback(municipio.emblema_alt, `Símbolo de ${nome}`);
+    const identityCard = emblemaSrc
+      ? `<aside class="identity-card">
+          <div class="identity-frame">
+            <img class="identity-image" src="${escapeAttr(emblemaSrc)}" alt="${escapeAttr(emblemaAlt)}">
+          </div>
+        </aside>`
+      : `<aside class="identity-card identity-card--placeholder" aria-label="Brasão ou bandeira indisponível">
+          <div class="identity-frame identity-frame--placeholder">
+            <span class="placeholder-na">N/A</span>
+          </div>
+        </aside>`;
 
     this.innerHTML = `
       <main class="municipio-detalhe-page">
         <section class="municipio-detalhe-section">
           <div class="container-wide">
             <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-              <a href="/inicio/">Início</a>
+              <a href="${siteUrl('')}">Início</a>
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
-              <a href="/inicio/municipios/">Municípios</a>
+              <a href="${siteUrl('municipios/')}">Municípios</a>
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
               <span>${escapeAttr(nome)}</span>
             </nav>
@@ -141,17 +167,22 @@ class MunicipioDetalhePage extends HTMLElement {
             <div class="hero-grid">
               <div class="detail-main-column">
                 <div class="detail-header">
-                  <h1>${escapeAttr(nome)}</h1>
+                  <div class="detail-title-row">
+                    ${identityCard}
+                    <h1>${escapeAttr(nome)}</h1>
+                  </div>
                   ${descricao ? `<p>${escapeAttr(descricao)}</p>` : ''}
                 </div>
 
                 <div class="details-stack">
-                  <section class="detail-section">
-                    <span class="eyebrow">Prefeito</span>
+                  <section class="detail-section prefeito-section">
                     <p class="role-label">${escapeAttr(prefeito).replaceAll('\n', '<br>')}</p>
-                    <figure class="prefeito-card">
-                      <img class="prefeito-image" src="${escapeAttr(prefeitoSrc)}" alt="${escapeAttr(prefeitoAlt)}">
-                    </figure>
+                    <div class="prefeito-media">
+                      <figure class="prefeito-card">
+                        <img class="prefeito-image" src="${escapeAttr(prefeitoSrc)}" alt="${escapeAttr(prefeitoAlt)}">
+                      </figure>
+                      <span class="eyebrow prefeito-title">Prefeito</span>
+                    </div>
                   </section>
 
                   <section class="detail-section">
@@ -185,21 +216,6 @@ class MunicipioDetalhePage extends HTMLElement {
                   </section>
                 </div>
               </div>
-
-              ${
-                emblemaSrc
-                  ? `<aside class="identity-card">
-                      <span class="identity-accent" aria-hidden="true"></span>
-                      <div class="identity-frame">
-                        <img class="identity-image" src="${escapeAttr(emblemaSrc)}" alt="${escapeAttr(emblemaAlt)}">
-                      </div>
-                    </aside>`
-                  : `<aside class="identity-card identity-card--placeholder" aria-label="Brasão ou bandeira indisponível">
-                      <div class="identity-frame identity-frame--placeholder">
-                        <span class="placeholder-na">N/A</span>
-                      </div>
-                    </aside>`
-              }
             </div>
           </div>
         </section>

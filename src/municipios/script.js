@@ -1,4 +1,7 @@
 let MUNICIPIOS_ALAGOAS = {};
+const MUNICIPIOS_SCRIPT_URL = document.currentScript?.src || new URL('municipios/script.js', document.baseURI).href;
+const MUNICIPIOS_BASE_URL = new URL('./', MUNICIPIOS_SCRIPT_URL);
+const SITE_BASE_URL = new URL('../', MUNICIPIOS_SCRIPT_URL);
 
 const MUNICIPIO_ROUTES = {
   '2700706': 'Batalha',
@@ -74,7 +77,9 @@ function isMunicipioAtivo(code) {
 
 function getPresentationUrl(code) {
   const route = MUNICIPIO_ROUTES[code];
-  return route ? `/inicio/municipios/Detalhes/pages/${route}/` : '/inicio/municipios/';
+  return route
+    ? new URL(`Detalhes/pages/${route}/`, MUNICIPIOS_BASE_URL).href
+    : MUNICIPIOS_BASE_URL.href;
 }
 
 function getActiveStyle(code) {
@@ -182,7 +187,7 @@ function createMap() {
 }
 
 async function loadGeoJson() {
-  const response = await fetch('/inicio/municipios/alagoas-municipios.geojson');
+  const response = await fetch(new URL('alagoas-municipios.geojson', MUNICIPIOS_BASE_URL));
 
   if (!response.ok) {
     throw new Error('Não foi possível carregar o GeoJSON dos municípios.');
@@ -192,7 +197,7 @@ async function loadGeoJson() {
 }
 
 async function loadMunicipiosData() {
-  const response = await fetch('/inicio/municipios/Detalhes/Componentes/Data/dados-municipios.json');
+  const response = await fetch(new URL('municipios/Detalhes/Componentes/Data/dados-municipios.json', SITE_BASE_URL));
 
   if (!response.ok) {
     throw new Error('Não foi possível carregar a base dos municípios.');
