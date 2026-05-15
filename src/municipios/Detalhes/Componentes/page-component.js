@@ -140,6 +140,17 @@ class MunicipioDetalhePage extends HTMLElement {
     );
     const emblemaSrc = resolveLocalPath(valueOrFallback(municipio.emblema_src, ''));
     const emblemaAlt = valueOrFallback(municipio.emblema_alt, `Símbolo de ${nome}`);
+    const identityCard = emblemaSrc
+      ? `<aside class="identity-card">
+          <div class="identity-frame">
+            <img class="identity-image" src="${escapeAttr(emblemaSrc)}" alt="${escapeAttr(emblemaAlt)}">
+          </div>
+        </aside>`
+      : `<aside class="identity-card identity-card--placeholder" aria-label="Brasão ou bandeira indisponível">
+          <div class="identity-frame identity-frame--placeholder">
+            <span class="placeholder-na">N/A</span>
+          </div>
+        </aside>`;
 
     this.innerHTML = `
       <main class="municipio-detalhe-page">
@@ -156,17 +167,22 @@ class MunicipioDetalhePage extends HTMLElement {
             <div class="hero-grid">
               <div class="detail-main-column">
                 <div class="detail-header">
-                  <h1>${escapeAttr(nome)}</h1>
+                  <div class="detail-title-row">
+                    ${identityCard}
+                    <h1>${escapeAttr(nome)}</h1>
+                  </div>
                   ${descricao ? `<p>${escapeAttr(descricao)}</p>` : ''}
                 </div>
 
                 <div class="details-stack">
-                  <section class="detail-section">
-                    <span class="eyebrow">Prefeito</span>
+                  <section class="detail-section prefeito-section">
                     <p class="role-label">${escapeAttr(prefeito).replaceAll('\n', '<br>')}</p>
-                    <figure class="prefeito-card">
-                      <img class="prefeito-image" src="${escapeAttr(prefeitoSrc)}" alt="${escapeAttr(prefeitoAlt)}">
-                    </figure>
+                    <div class="prefeito-media">
+                      <figure class="prefeito-card">
+                        <img class="prefeito-image" src="${escapeAttr(prefeitoSrc)}" alt="${escapeAttr(prefeitoAlt)}">
+                      </figure>
+                      <span class="eyebrow prefeito-title">Prefeito</span>
+                    </div>
                   </section>
 
                   <section class="detail-section">
@@ -200,21 +216,6 @@ class MunicipioDetalhePage extends HTMLElement {
                   </section>
                 </div>
               </div>
-
-              ${
-                emblemaSrc
-                  ? `<aside class="identity-card">
-                      <span class="identity-accent" aria-hidden="true"></span>
-                      <div class="identity-frame">
-                        <img class="identity-image" src="${escapeAttr(emblemaSrc)}" alt="${escapeAttr(emblemaAlt)}">
-                      </div>
-                    </aside>`
-                  : `<aside class="identity-card identity-card--placeholder" aria-label="Brasão ou bandeira indisponível">
-                      <div class="identity-frame identity-frame--placeholder">
-                        <span class="placeholder-na">N/A</span>
-                      </div>
-                    </aside>`
-              }
             </div>
           </div>
         </section>

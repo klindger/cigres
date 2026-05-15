@@ -19,7 +19,7 @@
     "email": "prefeituradebelomonte.al@gmail.com",
     "endereco": "Travessa Cônego Jasson Souto, nº 44, Centro de Belo Monte \nCEP: 57.435-000",
     "prefeito_src": "/municipios/Detalhes/Componentes/assets/BeloMontePrefeito.jpg",
-    "emblema_src": "/municipios/Detalhes/Componentes/assets/BeloMonteBrasao.jpg"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/BeloMonteBrasao.png"
   },
   {
     "codigo": "2701209",
@@ -30,7 +30,7 @@
     "email": "gabinete@cacimbinhas.al.gov.br",
     "endereco": "Praça 19 de Setembro, 101, Centro, Cacimbinhas - Alagoas\nCEP: 57570-000",
     "prefeito_src": "/municipios/Detalhes/Componentes/assets/CacimbinhasPrefeito.JPG",
-    "emblema_src": "/municipios/Detalhes/Componentes/assets/CacimbinhasBrasao.jpg"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/CacimbinhaBandeira.jpg"
   },
   {
     "codigo": "2701803",
@@ -73,7 +73,7 @@
     "telefone": "Dados a serem informados.",
     "email": "Dados a serem informados.",
     "endereco": "RUA PROFSSOR DERALDO CAMPOS Nº 209 \nCEP: 57425-000",
-    "prefeito_src": "",
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/JaramataiaPrefeito.jpg",
     "emblema_src": "/municipios/Detalhes/Componentes/assets/JaramataiaBrasao.png"
   },
   {
@@ -84,7 +84,7 @@
     "telefone": "(82)3424 1294",
     "email": "Dados a serem informados.",
     "endereco": "Praça Leopoldo Amaral, 97 - Centro - Major Izidoro/AL \nCEP: 57580-000",
-    "prefeito_src": "",
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/MajorPrefeito.jpg",
     "emblema_src": "/municipios/Detalhes/Componentes/assets/MajorIzidoroBandeira.png"
   },
   {
@@ -95,7 +95,7 @@
     "telefone": "(82) 3625-1123",
     "email": "prefmaravilha.gabinete@gmail.com",
     "endereco": "Praça Francisco Soares, 29 - Centro\nCEP: 57.520-000",
-    "prefeito_src": "/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/MaravilhaPrefeito.jpg",
     "emblema_src": "/municipios/Detalhes/Componentes/assets/MaravilhaBrasao.png"
   },
   {
@@ -107,7 +107,7 @@
     "email": "prefeito@monteiropolis.al.gov.b",
     "endereco": "Travessa Municipal, S/N, Centro",
     "prefeito_src": "/municipios/Detalhes/Componentes/assets/MonteiropolisPrefeito.jpg",
-    "emblema_src": ""
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/MonteiropolisBandeira.png"
   },
   {
     "codigo": "2705705",
@@ -139,7 +139,7 @@
     "telefone": "(82) 3631-1128",
     "email": "gabinete@palestina.al.gov.br",
     "endereco": "Pc Jose Tomaz Nono Neto, 101, Centro - Palestina - Alagoas\nCEP: 57410-000",
-    "prefeito_src": "/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "prefeito_src": "/municipios/Detalhes/Componentes/assets/PalestinaPrefeito.jpg",
     "emblema_src": "/municipios/Detalhes/Componentes/assets/PalestinaBrasao.webp"
   },
   {
@@ -151,7 +151,7 @@
     "email": "faleconosco@paodeacucar.al.gov.br",
     "endereco": "Av. Braulio Cavalcante, 607, Centro - Pão de Açúcar - Alagoas\nCEP: 57400-000",
     "prefeito_src": "/municipios/Detalhes/Componentes/assets/PaoDeAcucarPrefeito.jpg",
-    "emblema_src": "/municipios/Detalhes/Componentes/assets/PaoDeAcucarBandeira.jpg"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/PaoDeAcucarBandeira.png"
   },
   {
     "codigo": "2708006",
@@ -162,7 +162,7 @@
     "email": "Dados a serem informados.",
     "endereco": "R. Cel Lucena Maranhão, nº 141, Centro - Santana do Ipanema, AL\nCep: 57500-000",
     "prefeito_src": "/municipios/Detalhes/Componentes/assets/SantanaIpanemaPrefeito.jpg",
-    "emblema_src": "/municipios/Detalhes/Componentes/assets/SantanaIpanemaBrasao.jpg"
+    "emblema_src": "/municipios/Detalhes/Componentes/assets/SantanaDoIpanemaBrasao.png"
   },
   {
     "codigo": "2708402",
