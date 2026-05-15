@@ -189,6 +189,17 @@ const componentStyles = `
   }
 `;
 
+const componentScriptUrl = document.currentScript?.src || new URL("js/site-components.js", document.baseURI).href;
+const siteRootUrl = new URL("../", componentScriptUrl);
+
+function siteUrl(path) {
+  return new URL(path.replace(/^\/+/, ""), siteRootUrl).href;
+}
+
+function assetUrl(path) {
+  return siteUrl(`assets/${path}`);
+}
+
 function injectComponentStyles() {
   if (document.getElementById("site-components-style")) {
     return;
@@ -215,8 +226,8 @@ class SiteHeader extends HTMLElement {
       <header class="site-header">
         <nav class="navbar navbar-expand-lg">
           <div class="container-wide">
-            <a class="navbar-brand" href="/" aria-label="CIGRES">
-              <img src="/assets/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
+            <a class="navbar-brand" href="${siteUrl("")}" aria-label="CIGRES">
+              <img src="${assetUrl("logoextensa.png")}" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
@@ -225,12 +236,12 @@ class SiteHeader extends HTMLElement {
 
             <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
               <ul class="navbar-nav mb-3 mb-lg-0">
-                ${navLink("Início", "/", "home", active)}
-                ${navLink("O Consórcio", "/consorcio", "consorcio", active)}
-                ${navLink("Municípios", "/municipios", "municipios", active)}
-                ${navLink("Serviços", "/gestao", "gestao", active)}
-                ${navLink("Transparência", "/transparencia", "transparencia", active)}
-                ${navLink("Notícias", "/noticias", "noticias", active)}
+                ${navLink("Início", siteUrl(""), "home", active)}
+                ${navLink("O Consórcio", siteUrl("consorcio/"), "consorcio", active)}
+                ${navLink("Municípios", siteUrl("municipios/"), "municipios", active)}
+                ${navLink("Serviços", siteUrl("gestao/"), "gestao", active)}
+                ${navLink("Transparência", siteUrl("transparencia/"), "transparencia", active)}
+                ${navLink("Notícias", siteUrl("noticias/"), "noticias", active)}
               </ul>
             </div>
           </div>
@@ -246,9 +257,9 @@ class SiteFooter extends HTMLElement {
 
     this.innerHTML = `
       <footer class="footer">
-        <img class="footer-wave footer-wave-label-0" src="/assets/wave%20(2).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-1" src="/assets/wave%20(1).svg" alt="" aria-hidden="true">
-        <img class="footer-wave footer-wave-label-2" src="/assets/wave.svg" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-0" src="${assetUrl("wave (2).svg")}" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-1" src="${assetUrl("wave (1).svg")}" alt="" aria-hidden="true">
+        <img class="footer-wave footer-wave-label-2" src="${assetUrl("wave.svg")}" alt="" aria-hidden="true">
 
         <div class="footer-content">
           <p>
