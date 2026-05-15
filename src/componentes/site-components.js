@@ -215,7 +215,7 @@ class SiteHeader extends HTMLElement {
       <header class="site-header">
         <nav class="navbar navbar-expand-lg">
           <div class="container-wide">
-            <a class="navbar-brand" href="/src/index.html" aria-label="CIGRES">
+            <a class="navbar-brand" href="/inicio/" aria-label="CIGRES">
               <img src="/src/assets/logoextensa.png" class="brand-image" alt="CIGRES - Consórcio de Gestão de Resíduos Sólidos de Alagoas">
             </a>
 
@@ -225,11 +225,12 @@ class SiteHeader extends HTMLElement {
 
             <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
               <ul class="navbar-nav mb-3 mb-lg-0">
-                ${navLink("Início", "/src/index.html", "home", active)}
-                ${navLink("O Consórcio", "/consorcio", "consorcio", active)}
-                ${navLink("Municípios", "/municipios", "municipios", active)}
-                ${navLink("Transparência", "/transparencia", "transparencia", active)}
-                ${navLink("Notícias", "/#noticias", "noticias", active)}
+                ${navLink("Início", "/inicio/", "home", active)}
+                ${navLink("O Consórcio", "/inicio/consorcio", "consorcio", active)}
+                ${navLink("Municípios", "/inicio/municipios", "municipios", active)}
+                ${navLink("Serviços", "/inicio/gestao", "gestao", active)}
+                ${navLink("Transparência", "/inicio/transparencia", "transparencia", active)}
+                ${navLink("Notícias", "/inicio/#noticias", "noticias", active)}
               </ul>
             </div>
           </div>

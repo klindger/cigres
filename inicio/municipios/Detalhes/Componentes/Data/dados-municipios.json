@@ -1,0 +1,189 @@
+[
+  {
+    "codigo": "2700706",
+    "nome": "Batalha",
+    "website": "https://www.batalha.al.gov.br",
+    "prefeito": "WAGNEY DANTAS CORREIA CAJÉ",
+    "telefone": "(82) 9 8828-3716",
+    "email": "prefeitura@batalha.al.gov.br",
+    "endereco": "CEP: 57420-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/BatalhaPrefeito.png",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/BatalhaBrasao.png"
+  },
+  {
+    "codigo": "2700904",
+    "nome": "Belo Monte",
+    "website": "https://www.belomonte.al.gov.br",
+    "prefeito": "Nome do prefeito a ser informado.",
+    "telefone": "+55 (82) 3532-0009 / 3532-0005",
+    "email": "prefeituradebelomonte.al@gmail.com",
+    "endereco": "Travessa Cônego Jasson Souto, nº 44, Centro de Belo Monte.",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/BeloMontePrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/BeloMonteBrasao.jpg"
+  },
+  {
+    "codigo": "2701209",
+    "nome": "Cacimbinhas",
+    "website": "https://www.cacimbinhas.al.gov.br",
+    "prefeito": "Wladimir Araújo Wanderley",
+    "telefone": "(82) 3422-1192",
+    "email": "gabinete@cacimbinhas.al.gov.br",
+    "endereco": "Praça 19 de Setembro, 101, Centro\nCacimbinhas - Alagoas\nCEP: 57570-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/CacimbinhasPrefeito.JPG",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/CacimbinhasBrasao.jpg"
+  },
+  {
+    "codigo": "2701803",
+    "nome": "Carneiros",
+    "website": "https://www.carneiros.al.gov.br",
+    "prefeito": "Ubiratania Maria Santana",
+    "telefone": "(82) 3627-1155",
+    "email": "sec.administracao@carneiros.al.gov.br",
+    "endereco": "Praça – R. Cônego José Bulhões, 100 – Centro, Carneiros – AL, 57535-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/CarneirosPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/CarneirosBandeira.webp"
+  },
+  {
+    "codigo": "2702504",
+    "nome": "Dois Riachos",
+    "website": "https://www.doisriachos.al.gov.br",
+    "prefeito": "Rozineide Barbosa de Araújo Camilo",
+    "telefone": "(82) 3620-1486",
+    "email": "doisriachos.adm@gmail.com",
+    "endereco": "Av. Miguel V de Novaes\n100 - Centro - Dois Riachos/AL\nCEP: 57560-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/DoisRiachosPrefeito.jpeg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/DoisRiachosBrasao.png"
+  },
+  {
+    "codigo": "2703403",
+    "nome": "Jacaré dos Homens",
+    "website": "https://www.jacaredoshomens.al.gov.br",
+    "prefeito": "Maria Do Socorro Melo Da Silva",
+    "telefone": "(82) 3534-1194",
+    "email": "prefjdoshomens@gmail.com",
+    "endereco": "Rua José Alves Feitosa,\nS/N - Centro - Jacaré dos Homens/AL\nCEP: 57430-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/JacareDosHomensPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/JacareDosHomensBrasao.webp"
+  },
+  {
+    "codigo": "2703700",
+    "nome": "Jaramataia",
+    "website": "https://jaramataia.al.gov.br",
+    "prefeito": "Nome do prefeito a ser informado.",
+    "telefone": "Dados a serem informados.",
+    "email": "Dados a serem informados.",
+    "endereco": "Dados a serem informados.",
+    "prefeito_src": "",
+    "emblema_src": ""
+  },
+  {
+    "codigo": "2704401",
+    "nome": "Major Isidoro",
+    "website": "https://www.majorizidoro.al.gov.br",
+    "prefeito": "Nome do prefeito a ser informado.",
+    "telefone": "Dados a serem informados.",
+    "email": "Dados a serem informados.",
+    "endereco": "Dados a serem informados.",
+    "prefeito_src": "",
+    "emblema_src": ""
+  },
+  {
+    "codigo": "2704609",
+    "nome": "Maravilha",
+    "website": "https://www.maravilha.al.gov.br",
+    "prefeito": "Antônio Jorge Rodrigues",
+    "telefone": "(82) 3625-1123",
+    "email": "prefmaravilha.gabinete@gmail.com",
+    "endereco": "Praça Francisco Soares, 29\nCentro\n57.520-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/MaravilhaBrasao.png"
+  },
+  {
+    "codigo": "2705408",
+    "nome": "Monteirópolis",
+    "website": "https://www.monteiropolis.al.gov.br",
+    "prefeito": "Leonor Melo Monteiro",
+    "telefone": "Dados a serem informados.",
+    "email": "prefeito@monteiropolis.al.gov.b",
+    "endereco": "Travessa Municipal, S/N, Centro",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/MonteiropolisPrefeito.jpg",
+    "emblema_src": ""
+  },
+  {
+    "codigo": "2705705",
+    "nome": "Olho d'Água das Flores",
+    "website": "https://olhodaguadasflores.al.gov.br",
+    "prefeito": "Zé Luiz dos Anjos",
+    "telefone": "Dados a serem informados.",
+    "email": "Dados a serem informados.",
+    "endereco": "Praça Padre José de Souza Leite, Nº 60\nCEP: 57.442-000 - Centro",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/OlhoDaguaDasFloresPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/OlhaDaguaDasFloresBandeira.png"
+  },
+  {
+    "codigo": "2706000",
+    "nome": "Olivença",
+    "website": "https://www.olivenca.al.gov.br",
+    "prefeito": "Josimar Dionísio",
+    "telefone": "(82) 3632-1142",
+    "email": "gabinete@olivenca.al.gov.br",
+    "endereco": "RUA VEREADOR JOSÉ FELIX DA SILVA, 54 CENTRO",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/OlivencaPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/OlivencaBrasao.webp"
+  },
+  {
+    "codigo": "2706208",
+    "nome": "Palestina",
+    "website": "https://www.palestina.al.gov.br",
+    "prefeito": "José Djalma Gonçalves da Silva",
+    "telefone": "Dados a serem informados.",
+    "email": "gabinete@palestina.al.gov.br",
+    "endereco": "Pc Jose Tomaz Nono Neto, 101, Centro\nPalestina - Alagoas\nCEP: 57410-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/boneco.svg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/PalestinaBrasao.webp"
+  },
+  {
+    "codigo": "2706406",
+    "nome": "Pão de Açúcar",
+    "website": "https://www.paodeacucar.al.gov.br",
+    "prefeito": "Jorge Silva Dantas",
+    "telefone": "(82) 3624-1263",
+    "email": "Dados a serem informados.",
+    "endereco": "Av. Braulio Cavalcante, 607, Centro\nPão de Açúcar - Alagoas\nCEP: 57400-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/PaoDeAcucarPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/PaoDeAcucarBandeira.jpg"
+  },
+  {
+    "codigo": "2708006",
+    "nome": "Santana do Ipanema",
+    "website": "https://www.santanadoipanema.al.gov.br",
+    "prefeito": "Eduardo Bulhões",
+    "telefone": "+55 82 3621-3280",
+    "email": "Dados a serem informados.",
+    "endereco": "R. Cel Lucena Maranhão, nº 141, Centro\nSantana do Ipanema, AL\nCep: 57500-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SantanaIpanemaPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SantanaIpanemaBrasao.jpg"
+  },
+  {
+    "codigo": "2708402",
+    "nome": "São José da Tapera",
+    "website": "https://www.saojosedatapera.al.gov.br",
+    "prefeito": "JARBAS PEREIRA RICARDO",
+    "telefone": "(82) 9306-7508",
+    "email": "gabinete.prefeito@saojosedatapera.al.gov.br",
+    "endereco": "Av. Elísio Maia, 209, Centro\nSão José da Tapera - Alagoas\nCEP: 57445-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaPrefeito.jpg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SaoJoseDaTaperaBandeira.png"
+  },
+  {
+    "codigo": "2708956",
+    "nome": "Senador Rui Palmeira",
+    "website": "https://www.senadorruipalmeira.al.gov.br",
+    "prefeito": "Jeane Moura",
+    "telefone": "(82)3634-1173",
+    "email": "Dados a serem informados.",
+    "endereco": "Rua Santa Terezinha, 19\nCentro – 57515-000",
+    "prefeito_src": "/inicio/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraPrefeito.jpeg",
+    "emblema_src": "/inicio/municipios/Detalhes/Componentes/assets/SenadorRuiPalmeiraBandeira.png"
+  }
+]

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Municípios | CIGRES</title>
+  <meta
+    name="description"
+    content="Mapa interativo dos municípios consorciados de Alagoas com acesso à página de detalhes de cada município."
+  >
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="/inicio/municipios/style.css">
+
+  <script defer src="/src/componentes/site-components.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script
+    defer
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script defer src="/inicio/municipios/script.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <site-header active="municipios"></site-header>
+
+    <main class="municipios-page">
+      <section class="map-section">
+        <div class="container-wide">
+          <div class="map-topbar">
+            <div class="map-intro">
+              <h2>Municípios Consorciados</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-bleed">
+          <div class="map-shell-card">
+            <div class="map-toolbar">
+              <span><i class="bi bi-cursor"></i> Clique em um município para detalhes</span>
+              <button id="resetViewButton" class="btn-map-action btn-map-action-inline" type="button">
+                <i class="bi bi-arrows-fullscreen"></i>
+                Recentralizar mapa
+              </button>
+            </div>
+            <div id="alagoas-map" aria-label="Mapa dos municípios de Alagoas"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </div>
+</body>
+</html>
